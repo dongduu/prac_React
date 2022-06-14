@@ -13,6 +13,10 @@ function App() {
     setToDos((currentArray) => [toDo, ...currentArray]);
     setToDo("");
   };
+  const onDelete = (e) => {
+    const deleteLi = e.target.parentNode;
+    deleteLi.remove();
+  };
 
   return (
     <div>
@@ -29,7 +33,12 @@ function App() {
       <hr />
       <ul>
         {toDos.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index}>
+            {item}
+            <button key={index} onClick={onDelete}>
+              DEL
+            </button>
+          </li>
         ))}
       </ul>
     </div>
