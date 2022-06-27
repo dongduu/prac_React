@@ -27,6 +27,7 @@ function Home() {
         <div className={styles.movies}>
           {movies.map((movie) => (
             <Movie
+              className={styles.movie}
               key={movie.id}
               id={movie.id}
               year={movie.year}
