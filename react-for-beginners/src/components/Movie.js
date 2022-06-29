@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styles from "./Movie.module.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 function Movie({ id, coverImg, title, summary, genres }) {
   return (
@@ -16,13 +18,13 @@ function Movie({ id, coverImg, title, summary, genres }) {
       <p className={styles.summary}>
         {summary.length > 220 ? `${summary.slice(0, 220)}...` : summary}
       </p>
-      <ul className={styles.genre}>
+      <Swiper className={styles.genre} slidesPerView={1}>
         {genres.map((genre) => (
-          <li className={styles.genreItem} key={genre}>
+          <SwiperSlide className={styles.genreItem} key={genre}>
             {genre}
-          </li>
+          </SwiperSlide>
         ))}
-      </ul>
+      </Swiper>
     </div>
   );
 }
